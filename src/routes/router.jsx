@@ -11,6 +11,10 @@ import CreateNewPassword from '../pages/auth/createnewpass/CreateNewPassword';
 import DashboardHome from '../components/ownerDashboard/DashboardHome';
 import Ownerlayout from '../layout/ownerLauout/Ownerlayout';
 import CreateNewForms from '../components/ownerDashboard/CreateNewForms';
+import Profile from '../components/ownerDashboard/Profile';
+import GenarateQrcode from '../components/ownerDashboard/GenarateQrcode';
+import DownLoadQrcode from '../components/ownerDashboard/DownLoadQrcode';
+import Feedbackresult from './../components/ownerDashboard/Feedbackresult';
     const router = createBrowserRouter([
       // layout for usr 
         // {
@@ -42,6 +46,22 @@ import CreateNewForms from '../components/ownerDashboard/CreateNewForms';
             {
               path:'/createnewforms',
               element: <CreateNewForms/>,
+            },
+            {
+              path:'/profile',
+              element: <Profile/>,
+            },
+            {
+              path:'/genareteqrcode',
+              element: <GenarateQrcode/>,
+            },
+            {
+              path:'/downloadQRcode',
+              element: <DownLoadQrcode/>,
+            },
+            {
+              path:'/feedbackresult',
+              element: <Feedbackresult/>,
             },
            
           ],
