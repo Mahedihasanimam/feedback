@@ -6,11 +6,9 @@ export default {
   ],
   theme: {
     extend: {
-      container: {
-        center: true,
-        padding: "1rem",
-        width: "",
-      }	
+     fontFamily: {
+        nunito: ["Nunito Sans", "sans-serif"],
+     }
     },
   },
   plugins: [],

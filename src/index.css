@@ -1,4 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body{
+    font-family: nunito sans, sans-serif;
+}
+
+div#rc-tabs-3-tab-business {
+    color: #424242;
+    font-weight: 700;
+    font-size: 18px;
+}
+div#rc-tabs-3-tab-user{
+    color: #424242;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+    background: #062252;
+}
+div#rc-tabs-1-tab-business {
+    color: #424242;
+    font-weight: 700;
+    font-size: 18px;
+}
+div#rc-tabs-1-tab-user {
+    color: #424242;
+    font-weight: 700;
+    font-size: 18px;
+}

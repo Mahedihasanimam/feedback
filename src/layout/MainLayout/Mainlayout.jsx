@@ -6,7 +6,7 @@ import Footer from '../../components/share/Footer';
 
 const Mainlayout = () => {
     return (
-        <div>
+        <div className='font-nunito'>
             <Navbar/>
             <Outlet/>
             <Footer/>
