@@ -33,3 +33,36 @@ div#rc-tabs-1-tab-user {
     font-weight: 700;
     font-size: 18px;
 }
+
+h1.text-4xl.text-\[\#424242\].font-bold.my-4 {
+    text-align: center;
+}
+
+span.anticon.anticon-down.ant-select-suffix {
+    color: black;
+    font-size: large;
+    font-weight: 800;
+}
+
+.bottom-border-only {
+    border: none;
+    border-bottom: 2px solid #424242; /* Example color */
+  }
+  
+  .bottom-border-only:focus {
+    border-bottom-color: #424242; /* Focus color */
+    outline: none;
+  }
+  
+
+  .top-border-only {
+    border: none;
+    border-top: 2px solid #424242; /* Example color */
+  }
+  .top-border-only:focus {
+    border-top-color: #424242; /* Focus color */
+    outline: none;
+  }
+  
+
+  

@@ -8,21 +8,52 @@ import Registation from './../pages/auth/Registation/Registation';
 import Forgotpassword from '../pages/auth/forgetpassword/Forgotpassword';
 import Otpverification from '../pages/auth/otpverification/Otpverification';
 import CreateNewPassword from '../pages/auth/createnewpass/CreateNewPassword';
+import DashboardHome from '../components/ownerDashboard/DashboardHome';
+import Ownerlayout from '../layout/ownerLauout/Ownerlayout';
+import CreateNewForms from '../components/ownerDashboard/CreateNewForms';
     const router = createBrowserRouter([
+      // layout for usr 
+        // {
+        //  path: '/',
+        //   element: <Mainlayout/>,
+        //   children: [
+        //     {
+        //       path:'/',
+        //       element: <Home/>,
+        //     },
+        //     {
+        //       path:'/about',
+        //       element: <About/>,
+        //     },
+        //   ],
+        // },
+
+
+
+        // layout for owner 
         {
          path: '/',
-          element: <Mainlayout/>,
+          element: <Ownerlayout/>,
           children: [
             {
               path:'/',
-              element: <Home/>,
+              element: <DashboardHome/>,
             },
             {
-              path:'/about',
-              element: <About/>,
+              path:'/createnewforms',
+              element: <CreateNewForms/>,
             },
+           
           ],
         },
+
+
+
+
+
+
+
+
         {
             path: '/auth/login',
             element:<Login/>
