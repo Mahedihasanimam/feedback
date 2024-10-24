@@ -7,7 +7,7 @@ const GenarateQrcode = () => {
     const navigate=useNavigate();
   const onFinish = (values) => {
     console.log("Success:", { ...values }); // Include the login type in the console log
-    navigate('/downloadQRcode')
+    navigate('/dashboard/downloadQRcode')
 
   };
 

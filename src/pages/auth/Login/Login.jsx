@@ -1,14 +1,19 @@
 
-import { Form, Input, Button, Tabs } from "antd";
+import { Form, Input, Button, Tabs, message } from "antd";
 import { useState } from "react";
 import logoimage from "../../../assets/images/loginimage.png"; // Adjust the path as needed
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../../../index.css'
 const Login = () => {
   const [loginType, setLoginType] = useState("user"); // Default to "user" login
-
+  const navigate=useNavigate()
+  const role=localStorage.getItem("role")
   const onFinish = (values) => {
-    console.log("Success:", { ...values, loginType }); // Include the login type in the console log
+    console.log("Success:", { ...values, loginType }); 
+      localStorage.setItem("isAuthenticated", "true");
+      localStorage.setItem("role", loginType);
+      message.success("Login Successfull")
+    navigate(`${role=='business'?'/dashboard':'/'}`)
   };
 
   const onFinishFailed = (errorInfo) => {

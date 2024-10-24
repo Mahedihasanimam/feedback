@@ -42,7 +42,7 @@ const Profile = () => {
               <strong className="text-[16px] font-bold text-[#1F3B6B]">
                 Edit Profile
               </strong>
-              <Link to={'/genareteqrcode'} className="text-[16px] font-medium text-[#424242]">
+              <Link to={'/dashboard/genareteqrcode'} className="text-[16px] font-medium text-[#424242]">
                 Generate QR Code
               </Link>
             </div>

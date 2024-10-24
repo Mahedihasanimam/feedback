@@ -19,7 +19,7 @@ const Sidebar = ({ collapsed }) => {
           }).then((result) => {
             if (result.isConfirmed) {
               localStorage.clear();
-              window.location.href = "/login";
+              window.location.href = "/auth/login";
             }
           })
     }
@@ -56,7 +56,7 @@ const Sidebar = ({ collapsed }) => {
                     
                 ),
                 label: (
-                  <Link  className="text-[16px] font-semibold" to={`/`}>
+                  <Link  className="text-[16px] font-semibold" to={`/dashboard`}>
                     {" "}
                     Dashboard
                   </Link>
@@ -70,7 +70,7 @@ const Sidebar = ({ collapsed }) => {
                     </svg>
                     
                 ),
-                label: <Link className="text-[16px] font-semibold" to={`/createnewforms`}>Create Forms</Link>,
+                label: <Link className="text-[16px] font-semibold" to={`/dashboard/createnewforms`}>Create Forms</Link>,
               },
               {
                 key: "3",
@@ -81,7 +81,7 @@ const Sidebar = ({ collapsed }) => {
                     
                 ),
                 label: (
-                  <Link  className="text-[16px] font-semibold" to={`/profile`}>Profile</Link>
+                  <Link  className="text-[16px] font-semibold" to={`/dashboard/profile`}>Profile</Link>
                 ),
               },
               {
@@ -92,7 +92,7 @@ const Sidebar = ({ collapsed }) => {
                     </svg>
                     
                 ),
-                label: <Link className="text-[16px] font-semibold" to={`/feedbackresult`}>Feedback result</Link>,
+                label: <Link className="text-[16px] font-semibold" to={`/dashboard/feedbackresult`}>Feedback result</Link>,
               },
              
             ]}
