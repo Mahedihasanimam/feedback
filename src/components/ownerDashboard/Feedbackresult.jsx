@@ -209,7 +209,7 @@ const Feedbackresult = () => {
   return (
     <div className="container mx-auto my-12 p-4 rounded-lg">
      <div className="flex items-center justify-between py-6">
-     <h1 className="text-[34px] font-bold">Your form feedbacks</h1>
+     <h1 className="text-[20px] font-medium text-[#424242]"><strong>Form title:</strong> Survey for new product like autio.</h1>
      <DatePicker
           onChange={(date) => setSelectedDate(date)}
           format="DD MMM YYYY"

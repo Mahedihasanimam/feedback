@@ -1,14 +1,33 @@
 import { Button, Image, Layout, theme } from "antd";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/profile.png";
 const { Header } = Layout;
 
-// eslint-disable-next-line react/prop-types
 const MainHeader = ({ setCollapsed, collapsed }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  const location = useLocation();
+
+  // Define a function to get the title based on the path
+  const getTitle = (pathname) => {
+    switch (pathname) {
+      case "/":
+        return "Hello, Amazon_bd";
+      case "/createnewforms":
+        return "Create forms";
+      case "/profile":
+        return "Our My Profile";
+      case "/feedbackresult":
+        return "Feedback result for created forms";
+      default:
+        return "Hello, Amazon_bd";
+    }
+  };
+
+  const currentTitle = getTitle(location.pathname);
+
   return (
     <div>
       <Header
@@ -38,7 +57,7 @@ const MainHeader = ({ setCollapsed, collapsed }) => {
           <div className=" flex justify-between items-center w-full">
             <div className=" text-white text-[34px] font-bold">
               <span className="text-[#1F3B6B] text-[28px] font-bold">
-                Hello, Amazon_bd
+                {currentTitle}
               </span>
             </div>
             <div className=" text-white flex items-center  space-x-4">
