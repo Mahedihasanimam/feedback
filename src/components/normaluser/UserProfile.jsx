@@ -2,12 +2,12 @@ import { Form, Input, Button, message } from "antd";
 import profile from "../../assets/images/ownerprofile.png";
 import { Link, useNavigate } from "react-router-dom";
 
-const Profile = () => {
+const UserProfile = () => {
   const navigate=useNavigate()
   const onFinish = (values) => {
     console.log("Success:", { ...values }); // Include the login type in the console log
     message.success("Profile updated successfully");
-    navigate('/dashboard')
+    navigate('/')
   };
 
 
@@ -44,10 +44,10 @@ const Profile = () => {
             </div>
             <div className="flex items-center space-x-4 w-fit mx-auto py-6">
               <strong className="text-[16px] font-bold text-[#1F3B6B]">
-                Edit Profile
+              Edit Profile
               </strong>
-              <Link to={'/dashboard/genareteqrcode'} className="text-[16px] font-medium text-[#424242]">
-                Generate QR Code
+              <Link to={'/updateuserpass'} className="text-[16px] font-medium text-[#424242]">
+                UpdatePassword
               </Link>
             </div>
 
@@ -139,59 +139,8 @@ const Profile = () => {
                     placeholder="Enter your location"
                   />
                 </Form.Item>
-                <Form.Item
-               
-                  label={
-                    <label
-                      htmlFor="password"
-                      className="text-sm text-[#424242] font-bold"
-                    >
-                      Password
-                    </label>
-                  }
-                  name="password"
-                 
-                  required={false}
-                >
-                  <Input.Password
-                 
-                    defaultValue={"*********"}
-                    
-                    prefix={
-                      <svg
-                        width="23"
-                        height="13"
-                        viewBox="0 0 23 13"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 8.5C5.45 8.5 4.97917 8.30417 4.5875 7.9125C4.19583 7.52083 4 7.05 4 6.5C4 5.95 4.19583 5.47917 4.5875 5.0875C4.97917 4.69583 5.45 4.5 6 4.5C6.55 4.5 7.02083 4.69583 7.4125 5.0875C7.80417 5.47917 8 5.95 8 6.5C8 7.05 7.80417 7.52083 7.4125 7.9125C7.02083 8.30417 6.55 8.5 6 8.5ZM6 12.5C4.33333 12.5 2.91667 11.9167 1.75 10.75C0.583333 9.58333 0 8.16667 0 6.5C0 4.83333 0.583333 3.41667 1.75 2.25C2.91667 1.08333 4.33333 0.5 6 0.5C7.11667 0.5 8.12917 0.775 9.0375 1.325C9.94583 1.875 10.6667 2.6 11.2 3.5H20L23 6.5L18.5 11L16.5 9.5L14.5 11L12.375 9.5H11.2C10.6667 10.4 9.94583 11.125 9.0375 11.675C8.12917 12.225 7.11667 12.5 6 12.5ZM6 10.5C6.93333 10.5 7.75417 10.2167 8.4625 9.65C9.17083 9.08333 9.64167 8.36667 9.875 7.5H13L14.45 8.525L16.5 7L18.275 8.375L20.15 6.5L19.15 5.5H9.875C9.64167 4.63333 9.17083 3.91667 8.4625 3.35C7.75417 2.78333 6.93333 2.5 6 2.5C4.9 2.5 3.95833 2.89167 3.175 3.675C2.39167 4.45833 2 5.4 2 6.5C2 7.6 2.39167 8.54167 3.175 9.325C3.95833 10.1083 4.9 10.5 6 10.5Z"
-                          fill="#424242"
-                        />
-                      </svg>
-                    }
-                    className="border bg-[#E9EBF0] p-2 text-[16px] text-[#424242] font-medium hover:bg-[#E9EBF0] focus:border-[#dde2eb]"
-                    placeholder="Enter your password"
-                  />
-                <Link to={'/dashboard/updateprofile'} className="flex items-center justify-end text-[#1F3B6B] text-[12px] font-medium">Update password</Link>
-                </Form.Item>
+           
 
-                <div>
-                  <h3 className="text-sm text-[#424242] font-bold text-start">
-                    About Company
-                  </h3>
-                  <div className="bg-[#E9EBF0] text-[#424242] p-4 rounded-lg w-full mb-4 mt-2">
-                    <p className="flex items-center gap-4 text-[14px] font-medium text-start">
-                    
-                    <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 16H12V14H4V16ZM4 12H12V10H4V12ZM2 20C1.45 20 0.979167 19.8042 0.5875 19.4125C0.195833 19.0208 0 18.55 0 18V2C0 1.45 0.195833 0.979167 0.5875 0.5875C0.979167 0.195833 1.45 0 2 0H10L16 6V18C16 18.55 15.8042 19.0208 15.4125 19.4125C15.0208 19.8042 14.55 20 14 20H2ZM9 7V2H2V18H14V7H9Z" fill="#424242"/>
-</svg>
-
-                    Software Solution Company. Stablished in 2013 in a drawing house. 
-                    </p>
-                  </div>
-                </div>
 
                 <Form.Item>
                   <Button
@@ -215,4 +164,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default UserProfile;

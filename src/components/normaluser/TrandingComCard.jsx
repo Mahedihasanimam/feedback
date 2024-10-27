@@ -1,4 +1,5 @@
 import { Button, Image } from "antd";
+import { Link } from "react-router-dom";
 
 
 const TrandingComCard = ({ name, location, image }) => {
@@ -21,13 +22,15 @@ const TrandingComCard = ({ name, location, image }) => {
         </svg>
         <span>{location}</span>
       </p>
-      <Button
+    <Link to={'/giverespons'}>
+    <Button
         style={{ backgroundColor: "#1F3B6B", height: "42px",  }}
         type="primary"
         className="mt-4 text-white text-sm font-semibold rounded-lg"
       >
         Give response
       </Button>
+    </Link>
     </div>
   );
 };

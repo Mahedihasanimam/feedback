@@ -17,6 +17,15 @@ import Feedbackresult from './../components/ownerDashboard/Feedbackresult';
 import RoleBasedRoute from './RoleBasedRoute';
 import Mainlayout from '../layout/MainLayout/Mainlayout';
 import Ownerlayout from '../layout/ownerLauout/Ownerlayout';
+import CompanyList from '../components/normaluser/CompanyList';
+import Notifications from '../components/normaluser/Notifications';
+import UserProfile from '../components/normaluser/UserProfile';
+import UpdateProfile from '../components/ownerDashboard/UpdateProfile';
+import UpdateUserpass from '../components/normaluser/UpdateUserpass';
+import YourSurvay from '../components/normaluser/YourSurvay';
+import SurvayDetails from '../components/normaluser/SurvayDetails';
+import CompanylistDetials from '../components/normaluser/CompanylistDetials';
+import GiveRespons from '../components/normaluser/GiveRespons';
 
 // Define the router
 const router = createBrowserRouter([
@@ -32,8 +41,41 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/about',
-        element: <About />,
+        path: '/list',
+        element: <CompanyList />,
+      },
+      {
+        path: '/companylistdetials',
+        element: <CompanylistDetials />,
+      },
+      
+      {
+        path: '/notifications',
+        element: <Notifications />,
+      },
+      {
+        path: '/profile',
+        element: <UserProfile />,
+      },
+      {
+        path: '/updateuserpass',
+        element: <UpdateUserpass />,
+      },
+      {
+        path: '/yoursurvay',
+        element: <YourSurvay />,
+      },
+      {
+        path: '/survaydetails',
+        element: <SurvayDetails />,
+      },
+      {
+        path: '/giverespons',
+        element: <GiveRespons />,
+      },
+      {
+        path: '/dashboard/updateprofile',
+        element: <UpdateProfile />,
       },
     ],
   },

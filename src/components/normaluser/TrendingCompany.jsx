@@ -28,7 +28,7 @@ const TrendingCompany = () => {
   }, []);
 
   return (
-    <div className="pt-[56px]">
+    <div className="py-[56px]">
       <h1 className="text-4xl font-bold text-[#000005] text-center pb-[24px]">
         Trending Companies
       </h1>
@@ -36,7 +36,7 @@ const TrendingCompany = () => {
         <div className="overflow-hidden">
           <div
             className="flex space-x-4 md:space-x-6 transition-transform duration-300"
-            style={{ transform: `translateX(-${currentIndex * (100 / 5)}%)` }} // Adjust to show next items
+            style={{ transform: `translateX(-${currentIndex * (100 / 5 )}%)` }} // Adjust to show next items
           >
             {trendingData.map((item) => (
               <div key={item.id} className="flex-shrink-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"> {/* Responsive widths */}

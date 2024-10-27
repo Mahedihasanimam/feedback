@@ -732,6 +732,17 @@ const CreateNewForms = () => {
           </div>
         </div>
       ))}
+
+      <div className="flex items-center justify-center">
+        
+      <Button
+      style={{backgroundColor:"#1F3B6B",width:"40%"}}
+        type="primary"
+        size="large"
+        className="mt-6  h-[44px] text-lg font-medium text-[#FFFF] border-none w-[80%] "
+       
+      >Save </Button>
+      </div>
     </div>
   );
 };

@@ -13,14 +13,16 @@ const MainHeader = ({ setCollapsed, collapsed }) => {
   // Define a function to get the title based on the path
   const getTitle = (pathname) => {
     switch (pathname) {
-      case "/":
+      case "/dashboard":
         return "Hello, Amazon_bd";
-      case "/createnewforms":
+      case "/dashboard/createnewforms":
         return "Create forms";
-      case "/profile":
+      case "/dashboard/profile":
         return "Our My Profile";
-      case "/feedbackresult":
+      case "/dashboard/feedbackresult":
         return "Feedback result for created forms";
+      case "/dashboard/updateprofile":
+        return "update Passwrord";
       default:
         return "Hello, Amazon_bd";
     }
@@ -61,7 +63,7 @@ const MainHeader = ({ setCollapsed, collapsed }) => {
               </span>
             </div>
             <div className=" text-white flex items-center  space-x-4">
-              <Link to="/notification" className="text-white">
+              <Link to="/notifications" className="text-white">
                 <svg
                   width="40"
                   height="40"
@@ -76,16 +78,17 @@ const MainHeader = ({ setCollapsed, collapsed }) => {
                   />
                 </svg>
               </Link>
-              <div>
+              <Link to="/dashboard/profile" className="text-white">
                 <Image
+                
                   preview={false}
                   src={logo}
                   alt="user"
                   width={40}
                   height={40}
-                  className="mt-4"
+                  className="mt-4 cursor-pointer"
                 />
-              </div>
+              </Link>
             </div>
           </div>
         </div>

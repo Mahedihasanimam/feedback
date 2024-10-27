@@ -4,15 +4,29 @@ import {
   Drawer,
   Image,
 } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { MenuOutlined,CloseOutlined } from "@ant-design/icons";
+import { Link,useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import profile from "../../assets/images/profile.png";
+
 // import gloval from "/public/icons/gloval.svg";
 // import user from "/public/icons/user.svg";
 
 const Navbar = () => {
+    const navigate=useNavigate()
   const [drawerVisible, setDrawerVisible] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+  const handleLogout = () => {
+    // Remove token from local storage
+    localStorage.removeItem("role");
+
+    // Optionally, navigate the user to the login page or home page
+    navigate("/auth/login"); // Change "/login" to the appropriate path
+  };
 
 //   const profileMenu = (
 //     <Menu style={{ width: 200, backgroundColor: "#060000", color: "#ffffff" }}>
@@ -55,7 +69,7 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/companylist">Company List</Link>
+              <Link to="/list">Company List</Link>
             </li>
           </ul>
         </div>
@@ -63,7 +77,7 @@ const Navbar = () => {
         {/* Right Side: Buttons (Hidden on small screens) */}
         <div className="hidden lg:flex items-center space-x-6">
           <div className=" text-white flex items-center  space-x-4">
-            <Link to="/notification" className="text-white ">
+            <Link to="/notifications" className="text-white ">
               <svg
                 width="40"
                 height="40"
@@ -78,45 +92,31 @@ const Navbar = () => {
                 />
               </svg>
             </Link>
-            <div className="pb-6">
-              <Image
-                preview={false}
-                src={profile}
-                alt="user"
-                width={40}
-                height={40}
-                className="mt-4"
-              />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-[#424242]">George</h1>
-            </div>
+
+
+            <div className="relative">
+          {/* User Profile Icon */}
+          <div className="pb-6 cursor-pointer" onClick={toggleDropdown}>
+            <Image
+              preview={false}
+              src={profile}
+              alt="user"
+              width={40}
+              height={40}
+              className="mt-4"
+            />
           </div>
-        </div>
 
-        {/* Mobile Menu Button */}
-        <div className="lg:hidden">
-          <MenuOutlined
-            className="text-2xl"
-            onClick={() => setDrawerVisible(true)}
-          />
-        </div>
-
-        {/* Drawer for Mobile Menu */}
-        <Drawer
-          className="flex-col justify-between"
-          title={
-            <div>
-              <img width={80} height={80} src={logo} alt="Logo" />
-            </div>
-          }
-          placement="left"
-          onClose={() => setDrawerVisible(false)}
-          open={drawerVisible}
-        >
-          <ul className="space-y-3 py-4 min-h-[calc(100vh-164px)] ">
+          {/* Dropdown Menu */}
+          {isDropdownOpen && (
+            <div className="absolute z-50 top-12 w-56 mt-4 right-0 bg-white divide-y  rounded-md shadow-lg p-4">
+               
+            <ul className=" py-4 space-y-5 h-fit text-[#424242] text-[16px] font-medium ">
+                <li>
+               <button onClick={()=>setIsDropdownOpen(false)}> <CloseOutlined className="absolute top-4 right-4 cursor-pointer"  /></button>
+                </li>
             <li>
-              <Link className="flex items-center space-x-2" to="/terms">
+              <Link className="flex items-center space-x-2 cursor-pointer" to="/yoursurvay">
                 <svg
                   width="24"
                   height="24"
@@ -174,9 +174,149 @@ const Navbar = () => {
                 <span>Terms & Conditions</span>
               </Link>
             </li>
+            <li>
+              <Link className="flex items-center space-x-2" to="/profile">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 15C1 13.9391 1.42143 12.9217 2.17157 12.1716C2.92172 11.4214 3.93913 11 5 11H13C14.0609 11 15.0783 11.4214 15.8284 12.1716C16.5786 12.9217 17 13.9391 17 15C17 15.5304 16.7893 16.0391 16.4142 16.4142C16.0391 16.7893 15.5304 17 15 17H3C2.46957 17 1.96086 16.7893 1.58579 16.4142C1.21071 16.0391 1 15.5304 1 15Z" stroke="#424242" stroke-width="2" stroke-linejoin="round"/>
+<path d="M9 7C10.6569 7 12 5.65685 12 4C12 2.34315 10.6569 1 9 1C7.34315 1 6 2.34315 6 4C6 5.65685 7.34315 7 9 7Z" stroke="#424242" stroke-width="2"/>
+</svg>
+
+
+                <span>My profile</span>
+              </Link>
+            </li>
           </ul>
           <div className="flex flex-col space-y-2 ">
             <button
+            onClick={handleLogout}
+              className=" font-semibold text-[16px] p-5 flex items-center  space-x-4 text-red-500 "
+              type="primary"
+            >
+              {" "}
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 21C4.45 21 3.97933 20.8043 3.588 20.413C3.19667 20.0217 3.00067 19.5507 3 19V5C3 4.45 3.196 3.97933 3.588 3.588C3.98 3.19667 4.45067 3.00067 5 3H12V5H5V19H12V21H5ZM16 17L14.625 15.55L17.175 13H9V11H17.175L14.625 8.45L16 7L21 12L16 17Z"
+                  fill="#424242"
+                />
+              </svg>
+              <span >Logout</span>
+            </button>
+            </div>
+            
+            </div>
+
+          )}
+        </div>
+
+
+            <div>
+              <h1 className="text-xl font-bold text-[#424242]">George</h1>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="lg:hidden">
+          <MenuOutlined
+            className="text-2xl"
+            onClick={() => setDrawerVisible(true)}
+          />
+        </div>
+
+        {/* Drawer for Mobile Menu */}
+        <Drawer
+          className="flex-col justify-between"
+          title={
+            <div>
+              <img width={80} height={80} src={logo} alt="Logo" />
+            </div>
+          }
+          placement="left"
+          onClose={() => setDrawerVisible(false)}
+          open={drawerVisible}
+        >
+            <ul className=" py-4 space-y-5 h-fit text-[#424242] text-[16px] font-medium min-h-[75vh]  ">
+               
+            <li>
+              <Link className="flex items-center space-x-2 cursor-pointer" to="/yoursurvay">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.20903 12.324H4.40103C3.82203 12.324 3.35303 12.794 3.35303 13.372V20.202C3.35303 20.78 3.82303 21.25 4.40103 21.25H6.21003C6.79003 21.25 7.25903 20.78 7.25903 20.201V13.372C7.25876 13.0939 7.14816 12.8272 6.95149 12.6305C6.75482 12.4339 6.48816 12.3233 6.21003 12.323M12.904 2.75H11.096C10.516 2.75 10.047 3.22 10.047 3.799V20.2C10.047 20.78 10.517 21.249 11.097 21.249H12.904C13.484 21.249 13.953 20.779 13.953 20.2V3.8C13.953 3.22 13.483 2.751 12.903 2.751M19.599 7.927H17.79C17.21 7.927 16.741 8.397 16.741 8.977V20.2C16.741 20.78 17.211 21.249 17.79 21.249H19.598C19.8762 21.2487 20.1428 21.1381 20.3395 20.9415C20.5362 20.7448 20.6468 20.4781 20.647 20.2V8.976C20.647 8.396 20.177 7.927 19.597 7.927"
+                    stroke="#424242"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <span>Your Survey</span>
+              </Link>
+            </li>
+            <li>
+              <Link className="flex items-center space-x-2" to="/terms">
+                <svg
+                  width="16"
+                  height="20"
+                  viewBox="0 0 16 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 15H9V9H7V15ZM8 7C8.28333 7 8.521 6.904 8.713 6.712C8.905 6.52 9.00067 6.28267 9 6C8.99933 5.71733 8.90333 5.48 8.712 5.288C8.52067 5.096 8.28333 5 8 5C7.71667 5 7.47933 5.096 7.288 5.288C7.09667 5.48 7.00067 5.71733 7 6C6.99933 6.28267 7.09533 6.52033 7.288 6.713C7.48067 6.90567 7.718 7.00133 8 7ZM8 20C5.68333 19.4167 3.77067 18.0873 2.262 16.012C0.753334 13.9367 -0.000666225 11.6327 4.41696e-07 9.1V3L8 0L16 3V9.1C16 11.6333 15.246 13.9377 13.738 16.013C12.23 18.0883 10.3173 19.4173 8 20Z"
+                    fill="#424242"
+                  />
+                </svg>
+
+                <span>Privacy Policy</span>
+              </Link>
+            </li>
+            <li>
+              <Link className="flex items-center space-x-2" to="/terms">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 19.6448C10.649 18.6938 9.085 18.0878 7.445 17.8838C6.28185 17.6475 5.09682 17.5358 3.91 17.5508C3.75814 17.5521 3.60752 17.5233 3.46684 17.4661C3.32616 17.4089 3.1982 17.3244 3.09035 17.2175C2.98251 17.1106 2.8969 16.9834 2.83849 16.8432C2.78007 16.703 2.74999 16.5526 2.75 16.4008L2.771 5.50777C2.77036 5.21549 2.88103 4.93394 3.08053 4.72033C3.28002 4.50672 3.55336 4.37709 3.845 4.35777C5.05314 4.33376 6.2603 4.44173 7.445 4.67977C9.08322 4.89113 10.646 5.49565 12 6.44177M12 19.6448V6.44177M12 19.6448C13.351 18.6938 14.915 18.0878 16.555 17.8838C17.7182 17.6475 18.9032 17.5358 20.09 17.5508C20.2419 17.5521 20.3925 17.5233 20.5332 17.4661C20.6738 17.4089 20.8018 17.3244 20.9096 17.2175C21.0175 17.1106 21.1031 16.9834 21.1615 16.8432C21.2199 16.703 21.25 16.5526 21.25 16.4008L21.228 5.50777C21.2287 5.21566 21.1181 4.93424 20.9188 4.72066C20.7196 4.50707 20.4465 4.37733 20.155 4.35777C18.9469 4.33376 17.7397 4.44173 16.555 4.67977C14.9168 4.89113 13.354 5.49565 12 6.44177"
+                    stroke="#424242"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span>Terms & Conditions</span>
+              </Link>
+            </li>
+            <li>
+              <Link className="flex items-center space-x-2" to="/profile">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 15C1 13.9391 1.42143 12.9217 2.17157 12.1716C2.92172 11.4214 3.93913 11 5 11H13C14.0609 11 15.0783 11.4214 15.8284 12.1716C16.5786 12.9217 17 13.9391 17 15C17 15.5304 16.7893 16.0391 16.4142 16.4142C16.0391 16.7893 15.5304 17 15 17H3C2.46957 17 1.96086 16.7893 1.58579 16.4142C1.21071 16.0391 1 15.5304 1 15Z" stroke="#424242" stroke-width="2" stroke-linejoin="round"/>
+<path d="M9 7C10.6569 7 12 5.65685 12 4C12 2.34315 10.6569 1 9 1C7.34315 1 6 2.34315 6 4C6 5.65685 7.34315 7 9 7Z" stroke="#424242" stroke-width="2"/>
+</svg>
+
+
+                <span>My profile</span>
+              </Link>
+            </li>
+          </ul>
+          <div className="flex flex-col space-y-2 ">
+            <button
+             onClick={handleLogout}
               className=" font-semibold text-[16px] p-5 flex items-center  space-x-4 text-red-500 "
               type="primary"
             >
@@ -196,6 +336,7 @@ const Navbar = () => {
               <span>Logout</span>
             </button>
           </div>
+          
         </Drawer>
       </nav>
     </div>
