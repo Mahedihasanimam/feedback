@@ -39,7 +39,7 @@ const Login = () => {
         <div className="w-full">
           <div className="py-8">
             <h3 className="lg:text-[28px] text-xl font-bold text-[#424242]">Welcome to</h3>
-            <h1 className="lg:text-4xl text-2xl font-extrabold text-[#424242]">OPINYOO</h1>
+            <h1 className="lg:text-4xl text-2xl font-extrabold text-[#424242]">OPLNYOO</h1>
             <h1 className="lg:text-4xl text-2xl font-extrabold text-[#424242]">FEEDBACK DEFINED</h1>
           </div>
           <div className="bg-[#FFFFFF] p-4 rounded-lg">
@@ -136,7 +136,7 @@ const Login = () => {
             <div className="lg:flex md:flex flex-row justify-between items-center">
               <p className="text-[14px] text-[#195671] font-semibold  underline pb-4">
                 {" "}
-                New in Opinyoo? <Link to={"/auth/signup"}>Sign Up</Link>
+               New to Oplnyoo? <Link to={"/auth/signup"}>Sign Up</Link>
               </p>
               <Link to={"/auth/forgotpassword"} className="text-[14px] text-[#195671] font-semibold  underline pb-4">
                 Forgot password?

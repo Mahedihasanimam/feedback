@@ -41,7 +41,7 @@ const Sidebar = ({ collapsed }) => {
           <Image src={logo} preview={false} className=" " />
         </div>
         <div className="flex-col items-center justify-between ">
-         <div className="min-h-[80vh]">
+         <div className="min-h-[calc(100vh-250px)]">
          <Menu
       
       mode="inline"
@@ -99,6 +99,7 @@ const Sidebar = ({ collapsed }) => {
       ]}
     />
          </div>
+         
           <div className="flex flex-row items-center justify-around     ">
             <div
               className="flex flex-row items-center gap-2 text-white  "

@@ -101,8 +101,7 @@ const Home = () => {
             </div>
           </Carousel>
           <p className="text-[#424242] text-2xl font-bold my-4 pt-[20px] text-center">
-            Give your valuable feedback, so that owner can create a good product
-            for you. Give your feedback.
+           Your Feedback Fuels Better BusIness
           </p>
           <div className="flex items-center justify-center mt-[64px]">
             <Button

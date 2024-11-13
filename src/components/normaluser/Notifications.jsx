@@ -62,7 +62,7 @@ const Notifications = () => {
     return (
         <div className='bg-[#F4F4F4] min-h-screen p-2 mb-12'>
           <div className='container mx-auto'>
-          <h1 className='text-2xl font-bold text-[#424242] py-[24px] '>NOtifications</h1>
+          <h1 className='text-2xl font-bold text-[#424242] py-[24px] '>Notifications</h1>
            <div className='space-y-4'>
            {
                 notificationdata.map(company=><NotificationItem key={company.id} title={company.title} date={company.date} ispending={company.ispending} image={company.image} />)

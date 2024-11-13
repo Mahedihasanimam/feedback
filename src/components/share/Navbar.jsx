@@ -28,37 +28,14 @@ const Navbar = () => {
     navigate("/auth/login"); // Change "/login" to the appropriate path
   };
 
-//   const profileMenu = (
-//     <Menu style={{ width: 200, backgroundColor: "#060000", color: "#ffffff" }}>
-//       <Menu.Item key="1">
-//         <Link to="/auth/GuestLogin"> Guest Log in</Link>
-//       </Menu.Item>
-//       <Menu.Item key="2">
-//         <Link to="/auth/OwnerLogin">Owner Log in</Link>
-//       </Menu.Item>
-//       <Menu.Item key="3">
-//         <Link to="/Bookyourstay">Book your stay</Link>
-//       </Menu.Item>
-//       <Menu.Item key="4">
-//         <Link to="/FAQ">FAQ</Link>
-//       </Menu.Item>
-//       <Menu.Item key="5">
-//         {isOwner ? (
-//           <Link to="/Profile">My Profile</Link>
-//         ) : (
-//           <Link to="/ownerProfile">Owner profile</Link>
-//         )}
-//       </Menu.Item>
-//     </Menu>
-//   );
 
   return (
     <div className="bg-[#F4F4F4]">
       <nav className="w-full p-4  flex justify-between items-center">
         {/* Left Side: Logo */}
-        <div className="flex items-center space-x-4">
+        <div className=" w-full">
           <Link to="/">
-            <img width={80} height={80} src={logo} alt="Logo" />
+            <img  src={logo} alt="Logo" />
           </Link>
         </div>
 

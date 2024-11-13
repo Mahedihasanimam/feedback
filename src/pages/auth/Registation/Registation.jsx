@@ -40,7 +40,7 @@ const Registation = () => {
               Welcome to
             </h3>
             <h1 className="lg:text-4xl text-2xl font-extrabold text-[#424242]">
-              OPINYOO
+            OPLNYOO
             </h1>
             <h1 className="lg:text-4xl text-2xl font-extrabold text-[#424242]">
               FEEDBACK DEFINED
@@ -228,7 +228,7 @@ const Registation = () => {
             <div className="lg:flex md:flex flex-row justify-between items-center">
               <p className="text-[14px] text-[#195671] font-semibold   pb-4">
                 {" "}
-                Already in Opinyoo? <Link className="text-[#1F3B6B]" to={"/auth/login"}>Sign In</Link>
+                Already in Oplnyoo? <Link className="text-[#1F3B6B]" to={"/auth/login"}>Sign In</Link>
               </p>
             
             </div>

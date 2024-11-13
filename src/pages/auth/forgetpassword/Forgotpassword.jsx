@@ -36,7 +36,7 @@ const navigate=useNavigate()
               Welcome to
             </h3>
             <h1 className="lg:text-4xl text-2xl font-extrabold text-[#424242]">
-              OPINYOO
+            OPLNYOO
             </h1>
             <h1 className="lg:text-4xl text-2xl font-extrabold text-[#424242]">
               FEEDBACK DEFINED
