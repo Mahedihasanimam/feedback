@@ -30,7 +30,7 @@ const TrendingCompany = () => {
   return (
     <div className="py-[56px]">
       <h1 className="text-4xl font-bold text-[#000005] text-center pb-[24px]">
-        Trending Companies
+        Oplnyoo BusIness User
       </h1>
       <div className="container mx-auto pb-[48px]">
         <div className="overflow-hidden">

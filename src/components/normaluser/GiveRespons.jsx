@@ -2,10 +2,13 @@ import React from "react";
 import imageone from "../../assets/images/ownerprofile.png";
 import { Image } from "antd";
 import { Form, Input, Button, Select, Radio } from "antd";
-import { PlusOutlined, DeleteOutlined, LeftOutlined } from "@ant-design/icons";
+import {  DeleteOutlined, LeftOutlined } from "@ant-design/icons";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 const { Option } = Select;
 const GiveRespons = () => {
+  const navigate=useNavigate()
   const [sections, setSections] = useState([
     {
       id: Date.now(),
@@ -14,7 +17,18 @@ const GiveRespons = () => {
     },
   ]);
 
-
+  const handlesimbit = () => {
+  
+    Swal.fire({
+      title: 'success',
+      text: 'your feedback is saved successfully',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    })
+    // Redirect to dashboard page
+    navigate('/')
+  
+};
 
   const handleOptionChange = (id, index, newValue) => {
     setSections(
@@ -244,6 +258,17 @@ const GiveRespons = () => {
               </div>
             </div>
           ))}
+
+
+<Button
+                
+                type="primary" 
+                className="w-full mb-2  h-[44px] text-black font-medium" 
+                style={{ borderRadius: '0.5rem',backgroundColor: "#1F3B6B",color:'white' }} 
+                onClick={handlesimbit} // Call handleLogin on click
+            >
+                submit
+            </Button>
         </div>
       </div>
     </div>
